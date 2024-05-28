@@ -13,6 +13,11 @@ const mg = mailgun.client({username: 'api', key: API_KEY});
 app.use(cors());
 app.use(bodyParser.json());
 
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
 app.post('/send-email', (req, res) => {
     const { Name, EmailAddress, Message } = req.body;
     mg.messages.create('sandbox2f10007b0d644325ba334db08bee4436.mailgun.org', {
